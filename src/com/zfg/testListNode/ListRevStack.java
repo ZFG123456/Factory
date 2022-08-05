@@ -19,15 +19,18 @@ public class ListRevStack {
         ListNode headC = new ListNode(3);
         ListNode headD = new ListNode(4);
         ListNode headE = new ListNode(5);
+        ListNode headF = new ListNode(6);
         headA.next = headB;
         headB.next = headC;
         headC.next = headD;
         headD.next = headE;
+        headE.next = headF;
 
 //        List<Integer> list = listRev(headA);
-        List<Integer> list1 = listRev1(headA);
-        for (int i = 0; i < list1.size(); i++) {
-            System.out.print(list1.get(i) + " ");
+//        List<Integer> list1 = listRev1(headA);
+        List<Integer> list2 = listZiDingRev(headA, 2, 5);
+        for (int i = 0; i < list2.size(); i++) {
+            System.out.print(list2.get(i) + " ");
         }
 
     }
@@ -93,6 +96,59 @@ public class ListRevStack {
         }
 
         return list;
+    }
+
+    //单链表指定区间翻转
+    public static List<Integer> listZiDingRev(ListNode head, int left, int right) {
+
+        if (head == null) {
+            return null;
+        }
+        List<Integer> list = new ArrayList<>();
+        //翻转后的新链表
+        ListNode newHead = null;
+        //构建虚拟头结点
+        ListNode dummyNode = new ListNode(-1);
+        //利用头结点的优势可以避免复杂的头结点的处理
+        dummyNode.next = head;
+        //头指针指向虚拟头结点
+        ListNode pre = dummyNode;
+        //1.截取局部链表
+        //将头指针移动到left的左边前一个结点
+        for (int i = 0; i < left - 1; i++) {
+            pre = pre.next;
+        }
+        //将头指针移动到left结点
+        ListNode leftNode = pre.next;
+        //将尾指针移动到right的结点
+        ListNode rightNode = pre;
+        for (int i = 0; i < right - left + 1; i++) {
+            rightNode = rightNode.next;
+        }
+        //将剩余的链表进行保存
+        ListNode cur = rightNode.next;
+        //2.切断连接
+        pre.next = null;
+        rightNode.next = null;
+        //3.翻转局部链表
+        ListNode res = leftNode;
+        while (res != null) {
+            ListNode temp = res.next;
+            res.next = newHead;
+            newHead = res;
+            res = temp;
+        }
+        //链接原来的结点
+        pre.next = rightNode;
+        leftNode.next = cur;
+
+        while (dummyNode.next != null) {
+            list.add(dummyNode.next.val);
+            dummyNode = dummyNode.next;
+        }
+
+        return list;
+
     }
 
 
