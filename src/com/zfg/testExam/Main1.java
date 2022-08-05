@@ -43,6 +43,7 @@ public class Main1 {
     //按照A的方案二进制加法不计算进位
     public static int getA(List<Integer> list) {
 
+        return 0;
 
     }
 
