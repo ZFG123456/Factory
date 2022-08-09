@@ -58,7 +58,6 @@ public class TreeOderStack {
             if (temp.left != null) {
                 stack.push(temp.left);
             }
-
         }
 
         return list;
