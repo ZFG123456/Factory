@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 /**
  * @ClassName testArrayQueue
- * @Description 用数组模拟队列
+ * @Description 用数组模拟队列  ArrayQueue
  * @Author zfg
  * @Date 2022/8/9 下午 06:12
  */
