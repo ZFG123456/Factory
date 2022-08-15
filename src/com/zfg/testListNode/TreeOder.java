@@ -16,15 +16,20 @@ public class TreeOder {
         TreeNode nodeA = new TreeNode(1);
         TreeNode nodeB = new TreeNode(2);
         TreeNode nodeC = new TreeNode(3);
+        TreeNode nodeD = new TreeNode(4);
+        TreeNode nodeE = new TreeNode(5);
 
-        nodeA.right = nodeB;
+//        nodeA.right = nodeB;
+//        nodeB.left = nodeC;
+        nodeA.left = nodeB;
         nodeB.left = nodeC;
+        nodeC.left = nodeD;
+        nodeD.left = nodeE;
 
         int[] res = preorderTraversal(nodeA);
         for (int i = 0; i < res.length; i++) {
             System.out.print(res[i] + " ");
         }
-
     }
 
     //先序遍历
