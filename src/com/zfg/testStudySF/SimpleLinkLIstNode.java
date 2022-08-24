@@ -160,6 +160,31 @@ public class SimpleLinkLIstNode {
 
     }
 
+    //删除单链表的倒数第index个结点
+    public SimpleLinkLIstNode delIndex(int index) {
+
+        SimpleLinkLIstNode pre = new SimpleLinkLIstNode(-1);
+        pre.next = this;
+        SimpleLinkLIstNode start = pre;
+        SimpleLinkLIstNode end = pre;
+
+        //先让start移动index步
+        while (index != 0) {
+            start = start.next;
+            index--;
+        }
+        //start和end同时移动,当start移动到末尾的时候end就移动到了倒数第index个结点的上一个位置
+        while (start.next != null) {
+            start = start.next;
+            end = end.next;
+        }
+        //删除index结点
+        end.next = end.next.next;
+
+        return pre.next;
+
+    }
+
     //单链表的长度
     public int getLenth() {
         SimpleLinkLIstNode cur = this;
