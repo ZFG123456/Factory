@@ -1,8 +1,5 @@
 package com.zfg.testStudySF;
-
-import com.zfg.testListNode.TableNode;
 import com.zfg.testListNode.TreeNode;
-
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -209,20 +206,20 @@ public class BinaryTree {
 
     public static void main(String[] args) {
 
-        Node pRootOfTree = new Node(10);
-        Node node6 = new Node(6);
-        Node node14 = new Node(14);
-        Node node4 = new Node(4);
+        Node pRootOfTree = new Node(4);
+        Node node2 = new Node(2);
+        Node node1 = new Node(1);
+        Node node3 = new Node(3);
         Node node8 = new Node(8);
-        Node node12 = new Node(12);
-        Node node16 = new Node(16);
+        Node node6 = new Node(6);
+        Node node9 = new Node(9);
 
-        pRootOfTree.left = node6;
-        pRootOfTree.right = node14;
-        node6.left = node4;
-        node6.right = node8;
-        node14.left = node12;
-        node14.right = node16;
+        pRootOfTree.left = node2;
+        pRootOfTree.right = node8;
+        node2.left = node1;
+        node2.right = node3;
+        node8.left = node6;
+        node8.right = node9;
 
         BinaryTree bt = new BinaryTree();
         bt.Convert(pRootOfTree);
